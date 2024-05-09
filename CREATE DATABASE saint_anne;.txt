@@ -1,0 +1,33 @@
+CREATE DATABASE saint_anne;
+
+CREATE TABLE  Products (
+    ProductId INT AUTO_INCREMENT PRIMARY KEY,
+    Product_Name VARCHAR(255)
+);
+
+
+CREATE TABLE Stock_in (
+    StockInId INT AUTO_INCREMENT PRIMARY KEY,
+    Product_Id INT,
+    Date DATE,
+    Quantity INT,
+    Unit_Price DECIMAL(10, 2),
+    Total_Price DECIMAL(10, 2),
+    FOREIGN KEY (Product_Id) REFERENCES Products(ProductId)
+);
+
+
+    CREATE TABLE  Stock_out (
+    StockOutId INT AUTO_INCREMENT PRIMARY KEY,
+    Product_Id INT,
+    Date DATE,
+    Quantity INT,
+    FOREIGN KEY (Product_Id) REFERENCES Products(ProductId)
+);
+
+    CREATE TABLE  Users (
+    UserId INT AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(255) UNIQUE NOT NULL,
+    Password VARCHAR(255)  NOT NULL
+);
+
